@@ -16,7 +16,5 @@ return {
   { import = "astrocommunity.pack.biome" },
   -- Bash
   { import = "astrocommunity.pack.bash" },
-  -- nvim dap view because I prefer a more minimal graphical debugger
-  { import = "astrocommunity.debugging.nvim-dap-view" },
   -- import/override with your plugins folder
 }
