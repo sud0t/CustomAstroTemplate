@@ -60,6 +60,7 @@ return {
         ["<C-j>"] = { "<Down>", desc = "Move down" }
         ["<C-k>"] = { "<Up>", desc = "Move up" }
         ["<C-l>"] = { "<Right>", desc = "Move right" }
+      },
       n = {
         -- Neotree better toggle key
         ["\\"] = { "<Cmd>Neotree toggle<CR>", desc = "Toggle Explorer" }
