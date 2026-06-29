@@ -13,9 +13,19 @@ return {
       ensure_installed = {
         -- install language servers
         "lua-language-server",
+        "bash-language-server",
+        "pyright",
+        "hyprls",
+        "html-lsp",
+        "lemminx",
+        "json-lsp",
+        
 
         -- install formatters
         "stylua",
+        "black",
+        "biome",
+        "shfmt",
 
         -- install debuggers
         "debugpy",
