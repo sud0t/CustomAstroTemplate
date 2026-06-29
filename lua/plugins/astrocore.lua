@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -56,10 +54,35 @@ return {
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
       -- first key is the mode
+      i = {
+        -- Insert mode
+        ["<C-h>"] = { "<Left>", desc = "Move left" }
+        ["<C-j>"] = { "<Down>", desc = "Move down" }
+        ["<C-k>"] = { "<Up>", desc = "Move up" }
+        ["<C-l>"] = { "<Right>", desc = "Move right" }
       n = {
-        -- second key is the lefthand side of the map
-
+        -- Neotree better toggle key
+        ["\\"] = { "<Cmd>Neotree toggle<CR>", desc = "Toggle Explorer" }
+        -- Change list keys so i can use leader x for closing buffers
+        ["<Leader>z"] = vim.tbl_get(sections, "z")
+        ["<Leader>zq"] = { "<Cmd>copen<CR>", desc = "Quickfix List" }
+        ["<Leader>zl"] = { "<Cmd>lopen<CR>", desc = "Location List" }
         -- mappings seen under group name "Buffer"
+          -- Manage Buffers
+        ["<Leader>x"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
+        ["<Leader>X"] = { function() require("astrocore.buffer").close(0, true) end, desc = "Force close buffer" }
+        ["<tab>"] = {
+          function() 
+              require("astrocore.buffer").nav(vim.v.count1) 
+          end,
+          desc = "Next buffer",
+        }
+        ["<S-tab>"] = {
+          function() 
+              require("astrocore.buffer").nav(-vim.v.count1) 
+          end,
+          desc = "Previous buffer",
+        }
         ["<Leader>bd"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
