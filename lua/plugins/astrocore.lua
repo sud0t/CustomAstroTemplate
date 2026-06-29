@@ -62,7 +62,7 @@ return {
         ["<C-l>"] = { "<Right>", desc = "Move right" }
       },
       n = {
-        ["<Leader>ww"] = { "<Cmd>set wrap!<CR>", desc = "Toggle line wrapping" }
+        ["<Leader>ww"] = { function() require("astrocore.toggles").wrap() end, desc = "Toggle wrap" }
         -- Neotree better toggle key
         ["\\"] = { "<Cmd>Neotree toggle<CR>", desc = "Toggle Explorer" }
         -- Change list keys so i can use leader x for closing buffers
